@@ -64,6 +64,8 @@ li { margin-bottom: 8px; }
 
 /* research and experience entries */
 .meta { font: 14px var(--sans); color: var(--muted); margin: 0 0 12px; }
+h3.project { font-size: 21px; margin: 36px 0 6px; padding-top: 28px; border-top: 1px solid var(--rule); }
+h1 + p + h3.project { margin-top: 32px; }
 .meta a:first-of-type { margin-left: 12px; }
 .item { margin-bottom: 30px; }
 .item p { margin: 6px 0 0; }

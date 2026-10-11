@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <header class="site">
@@ -28,7 +28,7 @@
     about, or do to, another user through those shared parts: the memory, the memory controller
     and the links between GPUs.</p>
 
-  <h2>PAGE404: Breaking GPU isolation through page migration</h2>
+  <h3 class="project">PAGE404: Breaking GPU isolation through page migration</h3>
   <p class="meta">IEEE S&amp;P 2027 <a href="https://github.com/RavanN700/PAGE404_AttacksOnGH200">Code</a></p>
   <p>NVIDIA's GH200 pairs a CPU and a GPU that share memory. To keep data close to whoever is
     using it, the hardware moves memory pages between CPU and GPU memory on its own. The GPU can
@@ -40,7 +40,7 @@
     victim running a large language model: one tells which model the victim is running, and one
     estimates the length of the victim's prompt. We reported the issue to NVIDIA.</p>
 
-  <h2>Not so Refreshing: Attacking GPUs using a Rowhammer mitigation</h2>
+  <h3 class="project">Not so Refreshing: Attacking GPUs using a Rowhammer mitigation</h3>
   <p class="meta">USENIX Security 2025
     <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/nazaraliyev">Paper</a>
     <a href="https://zenodo.org/records/14751122">Code</a></p>
@@ -54,7 +54,7 @@
     denial-of-service attack that slows a victim down by 4.8x on average. In short, a defense
     added for security creates a new leak.</p>
 
-  <h2>NVBleed and Beyond the Bridge: Leaks over NVLink</h2>
+  <h3 class="project">NVBleed and Beyond the Bridge: Leaks over NVLink</h3>
   <p class="meta">ACM CCS 2026 <a href="https://arxiv.org/abs/2503.17847">Paper</a>
     &nbsp;·&nbsp; IEEE SEED 2024 <a href="https://arxiv.org/abs/2404.03877">Paper</a></p>
   <p>Servers with several GPUs connect them with NVLink, a high-speed interconnect. When two
@@ -68,7 +68,7 @@
     the leak across virtual machines on Google Cloud, and discussed defenses such as restricting
     counter access.</p>
 
-  <h2>PRACtical: Making Rowhammer defense cheaper</h2>
+  <h3 class="project">PRACtical: Making Rowhammer defense cheaper</h3>
   <p class="meta">arXiv 2025 <a href="https://arxiv.org/abs/2507.18581">Paper</a></p>
   <p>DDR5 adds Per-Row Activation Counting (PRAC): the memory counts how often each row is
     opened and asks for time to recover when a row gets close to the danger zone. It works, but
