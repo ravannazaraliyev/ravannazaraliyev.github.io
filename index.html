@@ -5,81 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ravan Nazaraliyev</title>
 <meta name="description" content="Ravan Nazaraliyev, Ph.D. student in Computer Science at UC Riverside.">
-<style>
-  body {
-    margin: 0; background: #fff; color: #222;
-    font: 16px/1.6 Georgia, "Times New Roman", serif;
-  }
-  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
-  a { color: #1a4f9c; }
-  h1 { font-size: 30px; font-weight: normal; margin: 0 0 4px; }
-  h2 { font-size: 20px; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 4px; margin: 40px 0 14px; }
-  .header { display: flex; gap: 28px; align-items: flex-start; }
-  .header img { width: 150px; height: 150px; object-fit: cover; flex-shrink: 0; }
-  .header p { margin: 0 0 10px; }
-  ul { padding-left: 20px; margin: 0; }
-  li { margin-bottom: 10px; }
-  .muted { color: #666; }
-  @media (max-width: 600px) {
-    .header { flex-direction: column; gap: 16px; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
+  <nav>
+    <a href="index.html" class="current">Home</a>
+    <a href="research.html">Research</a>
+    <a href="experience.html">Experience</a>
+  </nav>
+
   <div class="header">
     <img src="photo.jpeg" alt="Ravan Nazaraliyev">
     <div>
       <h1>Ravan Nazaraliyev</h1>
       <p class="muted">Ph.D. Student, Computer Science<br>University of California, Riverside</p>
-      <p>I work on the security of GPUs and memory systems, advised by Prof. Nael Abu-Ghazaleh.</p>
       <p><a href="mailto:rnaza005@ucr.edu">rnaza005@ucr.edu</a> · <a href="https://github.com/RavanN700">GitHub</a></p>
     </div>
   </div>
 
-  <h2>Publications</h2>
-  <ul>
-    <li><b>PAGE404: Breaking GPU Isolation Through Hardware-assisted Page Migration</b><br>
-      R. Nazaraliyev, Y. Zhang, N. Abu-Ghazaleh<br>
-      <i>IEEE Symposium on Security and Privacy (S&amp;P)</i>, 2027 (to appear)</li>
-    <li><b>NVBleed: Covert and Side-Channel Attacks on NVIDIA Multi-GPU Interconnect</b><br>
-      Y. Zhang, R. Nazaraliyev, S. B. Dutta, N. Abu-Ghazaleh, A. Marquez, K. Barker<br>
-      <i>ACM Conference on Computer and Communications Security (CCS)</i>, 2026 (to appear)</li>
-    <li><b>Not so Refreshing: Attacking GPUs using RFM Rowhammer Mitigation</b><br>
-      R. Nazaraliyev, Y. Zhang, S. B. Dutta, A. Marquez, K. Barker, N. Abu-Ghazaleh<br>
-      <i>USENIX Security Symposium</i>, 2025</li>
-    <li><b>Beyond the Bridge: Contention-Based Covert and Side Channel Attacks on Multi-GPU Interconnect</b><br>
-      Y. Zhang, R. Nazaraliyev, S. B. Dutta, N. Abu-Ghazaleh, A. Marquez, K. Barker<br>
-      <i>IEEE SEED</i>, 2024 [<a href="https://doi.org/10.1109/SEED61283.2024.00014">doi</a>]</li>
-    <li><b>PRACtical: Subarray-Level Counter Update and Bank-Level Recovery Isolation for Efficient PRAC Rowhammer Mitigation</b><br>
-      R. Nazaraliyev, S. Ganjisaffar, N. Nazaraliyev, N. Abu-Ghazaleh<br>
-      <i>arXiv:2507.18581</i>, 2025 [<a href="https://arxiv.org/abs/2507.18581">arXiv</a>]</li>
-  </ul>
-
-  <h2>Experience</h2>
-  <ul>
-    <li>Software Engineering Intern, Google, Summer 2026</li>
-    <li>Graduate Student Researcher, UC Riverside, 2022 – present</li>
-    <li>Teaching Assistant (CS100), UC Riverside, 2025 – 2026</li>
-  </ul>
-
-  <h2>Education</h2>
-  <ul>
-    <li>Ph.D., Computer Science, University of California, Riverside, 2022 – present (M.S. 2025)</li>
-    <li>B.Sc., Electrical and Electronics Engineering, Middle East Technical University, 2022</li>
-  </ul>
-
-  <h2>Awards</h2>
-  <ul>
-    <li>1st Place, ACM Student Research Competition at PACT, 2025</li>
-    <li>2nd Place, ACM Student Research Competition at PACT, 2024</li>
-    <li>Dean's Distinguished Fellowship, UC Riverside, 2022</li>
-  </ul>
-
-  <h2>Service</h2>
-  <ul>
-    <li>Artifact Evaluation Committee: HPCA 2026, ISCA 2025, USENIX Security 2026</li>
-  </ul>
+  <h2>About</h2>
+  <p>I am a Ph.D. student in Computer Science at the University of California, Riverside,
+    advised by Prof. Nael Abu-Ghazaleh. Before UCR, I received my B.Sc. in Electrical and
+    Electronics Engineering from Middle East Technical University (METU) in Ankara, Turkey.</p>
+  <p>My research is on the security of GPUs and memory systems. I look for ways that hardware
+    features such as page migration, Rowhammer mitigations and multi-GPU interconnects can be
+    used to break isolation, and I design defenses against these attacks. My work has appeared
+    at IEEE S&amp;P, USENIX Security and ACM CCS.</p>
+  <p>I am looking for opportunities in offensive hardware security research.</p>
 </main>
 </body>
 </html>

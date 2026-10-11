@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Ravan Nazaraliyev</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html" class="current">Research</a>
+    <a href="experience.html">Experience</a>
+  </nav>
+
+  <h1>Research</h1>
+  <p>I work on hardware security, focusing on GPUs, DRAM and heterogeneous memory systems.</p>
+
+  <h2>Projects</h2>
+  <div class="item">
+    <h3>PAGE404: GPU isolation on the NVIDIA GH200</h3>
+    <p>Hardware-assisted page migration in GPUs can be abused to break MIG isolation between co-located workloads.</p>
+  </div>
+  <div class="item">
+    <h3>Not so Refreshing: Rowhammer mitigations as attack vectors</h3>
+    <p>The DRAM Refresh Management (RFM) mitigation itself can be exploited to attack GPUs.</p>
+  </div>
+  <div class="item">
+    <h3>NVBleed: Multi-GPU interconnect channels</h3>
+    <p>Contention-based covert and side-channel attacks on the NVIDIA NVLink interconnect.</p>
+  </div>
+  <div class="item">
+    <h3>PRACtical: Efficient Rowhammer defense</h3>
+    <p>Subarray-level counter updates and bank-level recovery isolation reduce the performance overhead of PRAC.</p>
+  </div>
+
+  <h2>Publications</h2>
+  <ul>
+    <li><b>PAGE404: Breaking GPU Isolation Through Hardware-assisted Page Migration</b><br>
+      R. Nazaraliyev, Y. Zhang, N. Abu-Ghazaleh<br>
+      <i>IEEE Symposium on Security and Privacy (S&amp;P)</i>, 2027 (to appear)</li>
+    <li><b>NVBleed: Covert and Side-Channel Attacks on NVIDIA Multi-GPU Interconnect</b><br>
+      Y. Zhang, R. Nazaraliyev, S. B. Dutta, N. Abu-Ghazaleh, A. Marquez, K. Barker<br>
+      <i>ACM Conference on Computer and Communications Security (CCS)</i>, 2026 (to appear)</li>
+    <li><b>Not so Refreshing: Attacking GPUs using RFM Rowhammer Mitigation</b><br>
+      R. Nazaraliyev, Y. Zhang, S. B. Dutta, A. Marquez, K. Barker, N. Abu-Ghazaleh<br>
+      <i>USENIX Security Symposium</i>, 2025</li>
+    <li><b>Beyond the Bridge: Contention-Based Covert and Side Channel Attacks on Multi-GPU Interconnect</b><br>
+      Y. Zhang, R. Nazaraliyev, S. B. Dutta, N. Abu-Ghazaleh, A. Marquez, K. Barker<br>
+      <i>IEEE SEED</i>, 2024 [<a href="https://doi.org/10.1109/SEED61283.2024.00014">doi</a>]</li>
+    <li><b>PRACtical: Subarray-Level Counter Update and Bank-Level Recovery Isolation for Efficient PRAC Rowhammer Mitigation</b><br>
+      R. Nazaraliyev, S. Ganjisaffar, N. Nazaraliyev, N. Abu-Ghazaleh<br>
+      <i>arXiv:2507.18581</i>, 2025 [<a href="https://arxiv.org/abs/2507.18581">arXiv</a>]</li>
+  </ul>
+</main>
+</body>
+</html>
