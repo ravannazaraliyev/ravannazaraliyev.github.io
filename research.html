@@ -15,44 +15,62 @@
   </nav>
 
   <h1>Research</h1>
-  <p>I work on hardware security, focusing on GPUs, DRAM and heterogeneous memory systems.</p>
+  <p>GPUs used to belong to one user at a time. Today they are shared: cloud providers split a
+    single GPU between tenants, and large jobs run across many GPUs connected by fast links.
+    Sharing hardware means sharing its side effects. My work looks at what one user can learn
+    about, or do to, another user through those shared parts: the memory, the memory controller
+    and the links between GPUs. Below is a short, plain-language summary of each project.</p>
 
-  <h2>Projects</h2>
-  <div class="item">
-    <h3>PAGE404: GPU isolation on the NVIDIA GH200</h3>
-    <p>Hardware-assisted page migration in GPUs can be abused to break MIG isolation between co-located workloads.</p>
-  </div>
-  <div class="item">
-    <h3>Not so Refreshing: Rowhammer mitigations as attack vectors</h3>
-    <p>The DRAM Refresh Management (RFM) mitigation itself can be exploited to attack GPUs.</p>
-  </div>
-  <div class="item">
-    <h3>NVBleed: Multi-GPU interconnect channels</h3>
-    <p>Contention-based covert and side-channel attacks on the NVIDIA NVLink interconnect.</p>
-  </div>
-  <div class="item">
-    <h3>PRACtical: Efficient Rowhammer defense</h3>
-    <p>Subarray-level counter updates and bank-level recovery isolation reduce the performance overhead of PRAC.</p>
-  </div>
+  <h2>PAGE404: Breaking GPU isolation through page migration</h2>
+  <p class="muted">IEEE S&amp;P 2027 · [<a href="https://github.com/RavanN700/PAGE404_AttacksOnGH200">code</a>]</p>
+  <p>NVIDIA's GH200 pairs a CPU and a GPU that share memory. To keep data close to whoever is
+    using it, the hardware moves memory pages between CPU and GPU memory on its own. The GPU can
+    also be split into isolated slices with Multi-Instance GPU (MIG), so different customers can
+    run side by side.</p>
+  <p>We found that page migration is not fully isolated between those slices. By watching how
+    long migrations take, or by forcing evictions, one tenant can observe another. We used this
+    to build a covert channel between two MIG slices, and two side-channel attacks against a
+    victim running a large language model: one tells which model the victim is running, and one
+    estimates the length of the victim's prompt. We reported the issue to NVIDIA.</p>
 
-  <h2>Publications</h2>
-  <ul>
-    <li><b>PAGE404: Breaking GPU Isolation Through Hardware-assisted Page Migration</b><br>
-      R. Nazaraliyev, Y. Zhang, N. Abu-Ghazaleh<br>
-      <i>IEEE Symposium on Security and Privacy (S&amp;P)</i>, 2027 (to appear)</li>
-    <li><b>NVBleed: Covert and Side-Channel Attacks on NVIDIA Multi-GPU Interconnect</b><br>
-      Y. Zhang, R. Nazaraliyev, S. B. Dutta, N. Abu-Ghazaleh, A. Marquez, K. Barker<br>
-      <i>ACM Conference on Computer and Communications Security (CCS)</i>, 2026 (to appear)</li>
-    <li><b>Not so Refreshing: Attacking GPUs using RFM Rowhammer Mitigation</b><br>
-      R. Nazaraliyev, Y. Zhang, S. B. Dutta, A. Marquez, K. Barker, N. Abu-Ghazaleh<br>
-      <i>USENIX Security Symposium</i>, 2025</li>
-    <li><b>Beyond the Bridge: Contention-Based Covert and Side Channel Attacks on Multi-GPU Interconnect</b><br>
-      Y. Zhang, R. Nazaraliyev, S. B. Dutta, N. Abu-Ghazaleh, A. Marquez, K. Barker<br>
-      <i>IEEE SEED</i>, 2024 [<a href="https://doi.org/10.1109/SEED61283.2024.00014">doi</a>]</li>
-    <li><b>PRACtical: Subarray-Level Counter Update and Bank-Level Recovery Isolation for Efficient PRAC Rowhammer Mitigation</b><br>
-      R. Nazaraliyev, S. Ganjisaffar, N. Nazaraliyev, N. Abu-Ghazaleh<br>
-      <i>arXiv:2507.18581</i>, 2025 [<a href="https://arxiv.org/abs/2507.18581">arXiv</a>]</li>
-  </ul>
+  <h2>Not so Refreshing: Attacking GPUs using a Rowhammer mitigation</h2>
+  <p class="muted">USENIX Security 2025 ·
+    [<a href="https://www.usenix.org/conference/usenixsecurity25/presentation/nazaraliyev">paper</a>]
+    [<a href="https://zenodo.org/records/14751122">code</a>]</p>
+  <p>Rowhammer is a DRAM bug: accessing one memory row over and over can flip bits in nearby
+    rows. Newer memory defends against it with Refresh Management (RFM), which issues extra
+    refreshes when a bank is accessed too often. While a refresh runs, the bank is busy.</p>
+  <p>That busy time is visible. On GPUs with GDDR6 memory, we showed that an attacker can tell
+    when RFM fires and use it as a timing signal. With it we built a covert channel of over
+    50 KB/s per bank, fingerprinted which application another user was running (up to 95% F1)
+    and what was being rendered in Blender (up to 98% F1). We also turned it into a
+    denial-of-service attack that slows a victim down by 4.8x on average. In short, a defense
+    added for security creates a new leak.</p>
+
+  <h2>NVBleed and Beyond the Bridge: Leaks over NVLink</h2>
+  <p class="muted">ACM CCS 2026 · [<a href="https://arxiv.org/abs/2503.17847">paper</a>]
+    &nbsp; IEEE SEED 2024 · [<a href="https://arxiv.org/abs/2404.03877">paper</a>]</p>
+  <p>Servers with several GPUs connect them with NVLink, a high-speed interconnect. When two
+    jobs send data over the same link, they slow each other down. In Beyond the Bridge we showed
+    that this contention is enough to build a 45.5 kbps covert channel between GPUs and to
+    fingerprint applications, without special privileges.</p>
+  <p>NVBleed goes further. We reverse engineered how NVLink works and found two leaks: timing
+    from contention, and NVLink performance counters that ordinary users can read. These give a
+    covert channel of over 70 kbps, application fingerprinting across 18 HPC and deep learning
+    workloads (97.8% F1), and identification of 3D characters rendered in Blender. We also showed
+    the leak across virtual machines on Google Cloud, and discussed defenses such as restricting
+    counter access.</p>
+
+  <h2>PRACtical: Making Rowhammer defense cheaper</h2>
+  <p class="muted">arXiv 2025 · [<a href="https://arxiv.org/abs/2507.18581">paper</a>]</p>
+  <p>DDR5 adds Per-Row Activation Counting (PRAC): the memory counts how often each row is
+    opened and asks for time to recover when a row gets close to the danger zone. It works, but
+    it costs performance. Updating the counter slows down every row close, and recovery stalls
+    the whole memory channel even if only one bank is under attack.</p>
+  <p>PRACtical fixes both problems with the same security guarantee. Counter updates overlap
+    with work in other subarrays, and recovery pauses only the banks that need it. In simulation
+    this gives an average 8% speedup (up to 20%) over the previous best design and uses 19% less
+    energy.</p>
 </main>
 </body>
 </html>
