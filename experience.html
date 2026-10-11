@@ -4,22 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Experience · Ravan Nazaraliyev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="index.html">Ravan Nazaraliyev</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="experience.html" class="current">Experience</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="experience.html" class="current">Experience</a>
-  </nav>
-
   <h1>Experience</h1>
 
   <h2>Industry</h2>
   <div class="item">
-    <h3>Software Engineering Intern, Google</h3>
-    <span class="muted">June 2026 – September 2026</span>
+    <div class="role"><h3>Software Engineering Intern, Google</h3><span class="when">June 2026 – September 2026</span></div>
     <p>Applied Fault Tree Analysis (FTA), a reliability method long used in aerospace and nuclear
       power, to root-cause diagnosis of hardware errors in Google's multi-node production servers,
       with the goal of reducing mean time to repair (MTTR).</p>
@@ -35,8 +41,7 @@
 
   <h2>Academic</h2>
   <div class="item">
-    <h3>Graduate Student Researcher, University of California, Riverside</h3>
-    <span class="muted">September 2022 – present</span>
+    <div class="role"><h3>Graduate Student Researcher, University of California, Riverside</h3><span class="when">September 2022 – present</span></div>
     <p>Hardware security and computer architecture, advised by
       <a href="https://www.cs.ucr.edu/~nael/">Prof. Nael Abu-Ghazaleh</a>.
       More on each project on the <a href="research.html">Research</a> page.</p>
@@ -57,8 +62,7 @@
     </ul>
   </div>
   <div class="item">
-    <h3>Teaching Assistant, CS100, University of California, Riverside</h3>
-    <span class="muted">September 2025 – March 2026</span>
+    <div class="role"><h3>Teaching Assistant, CS100, University of California, Riverside</h3><span class="when">September 2025 – March 2026</span></div>
     <ul>
       <li>Led weekly discussion sections.</li>
       <li>Held office hours.</li>
@@ -66,5 +70,6 @@
     </ul>
   </div>
 </main>
+<footer>© 2026 Ravan Nazaraliyev</footer>
 </body>
 </html>

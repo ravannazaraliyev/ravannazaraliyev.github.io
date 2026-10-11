@@ -4,16 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research · Ravan Nazaraliyev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="index.html">Ravan Nazaraliyev</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html" class="current">Research</a>
+      <a href="experience.html">Experience</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html" class="current">Research</a>
-    <a href="experience.html">Experience</a>
-  </nav>
-
   <h1>Research</h1>
   <p>GPUs used to belong to one user at a time. Today they are shared: cloud providers split a
     single GPU between tenants, and large jobs run across many GPUs connected by fast links.
@@ -22,7 +29,7 @@
     and the links between GPUs.</p>
 
   <h2>PAGE404: Breaking GPU isolation through page migration</h2>
-  <p class="muted">IEEE S&amp;P 2027 · [<a href="https://github.com/RavanN700/PAGE404_AttacksOnGH200">code</a>]</p>
+  <p class="meta">IEEE S&amp;P 2027 <a href="https://github.com/RavanN700/PAGE404_AttacksOnGH200">Code</a></p>
   <p>NVIDIA's GH200 pairs a CPU and a GPU that share memory. To keep data close to whoever is
     using it, the hardware moves memory pages between CPU and GPU memory on its own. The GPU can
     also be split into isolated slices with Multi-Instance GPU (MIG), so different customers can
@@ -34,9 +41,9 @@
     estimates the length of the victim's prompt. We reported the issue to NVIDIA.</p>
 
   <h2>Not so Refreshing: Attacking GPUs using a Rowhammer mitigation</h2>
-  <p class="muted">USENIX Security 2025 ·
-    [<a href="https://www.usenix.org/conference/usenixsecurity25/presentation/nazaraliyev">paper</a>]
-    [<a href="https://zenodo.org/records/14751122">code</a>]</p>
+  <p class="meta">USENIX Security 2025
+    <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/nazaraliyev">Paper</a>
+    <a href="https://zenodo.org/records/14751122">Code</a></p>
   <p>Rowhammer is a DRAM bug: accessing one memory row over and over can flip bits in nearby
     rows. Newer memory defends against it with Refresh Management (RFM), which issues extra
     refreshes when a bank is accessed too often. While a refresh runs, the bank is busy.</p>
@@ -48,8 +55,8 @@
     added for security creates a new leak.</p>
 
   <h2>NVBleed and Beyond the Bridge: Leaks over NVLink</h2>
-  <p class="muted">ACM CCS 2026 · [<a href="https://arxiv.org/abs/2503.17847">paper</a>]
-    &nbsp; IEEE SEED 2024 · [<a href="https://arxiv.org/abs/2404.03877">paper</a>]</p>
+  <p class="meta">ACM CCS 2026 <a href="https://arxiv.org/abs/2503.17847">Paper</a>
+    &nbsp;·&nbsp; IEEE SEED 2024 <a href="https://arxiv.org/abs/2404.03877">Paper</a></p>
   <p>Servers with several GPUs connect them with NVLink, a high-speed interconnect. When two
     jobs send data over the same link, they slow each other down. In Beyond the Bridge we showed
     that this contention is enough to build a 45.5 kbps covert channel between GPUs and to
@@ -62,7 +69,7 @@
     counter access.</p>
 
   <h2>PRACtical: Making Rowhammer defense cheaper</h2>
-  <p class="muted">arXiv 2025 · [<a href="https://arxiv.org/abs/2507.18581">paper</a>]</p>
+  <p class="meta">arXiv 2025 <a href="https://arxiv.org/abs/2507.18581">Paper</a></p>
   <p>DDR5 adds Per-Row Activation Counting (PRAC): the memory counts how often each row is
     opened and asks for time to recover when a row gets close to the danger zone. It works, but
     it costs performance. Updating the counter slows down every row close, and recovery stalls
@@ -72,5 +79,6 @@
     this gives an average 8% speedup (up to 20%) over the previous best design and uses 19% less
     energy.</p>
 </main>
+<footer>© 2026 Ravan Nazaraliyev</footer>
 </body>
 </html>
