@@ -21,6 +21,7 @@ li { margin-bottom: 10px; }
 @media (max-width: 600px) {
   .header { flex-direction: column; gap: 16px; }
 }
-.contact { list-style: none; padding: 0; }
-.contact li { display: flex; align-items: center; gap: 10px; }
-.contact svg { width: 18px; height: 18px; color: #444; flex-shrink: 0; }
+.contact { display: flex; gap: 16px; margin: 0; }
+.contact a { color: #444; display: inline-flex; }
+.contact a:hover { color: #1a4f9c; }
+.contact svg { width: 20px; height: 20px; }
