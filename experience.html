@@ -20,24 +20,50 @@
   <div class="item">
     <h3>Software Engineering Intern, Google</h3>
     <span class="muted">June 2026 – September 2026</span>
-    <p>Applied Fault Tree Analysis, a reliability method from aerospace and nuclear power, to
-      root-cause diagnosis of hardware errors in multi-node production servers, with the goal of
-      reducing mean time to repair. Generated fault trees from the machine's PCIe topology and built
-      a tool that traverses them from a telemetry symptom to recommend which field-replaceable unit
-      to replace.</p>
+    <p>Applied Fault Tree Analysis (FTA), a reliability method long used in aerospace and nuclear
+      power, to root-cause diagnosis of hardware errors in Google's multi-node production servers,
+      with the goal of reducing mean time to repair (MTTR).</p>
+    <ul>
+      <li>Extracted the PCIe topology from an existing structural model of the machine and
+        generated fault trees from that topology.</li>
+      <li>Built a diagnosis tool that takes an error symptom reported by telemetry, traverses the
+        fault tree and recommends which field-replaceable unit (FRU) to swap.</li>
+      <li>Evaluated the tool against the current heuristic, rule-based diagnosis practice, aiming
+        for fewer misattributed root causes.</li>
+    </ul>
   </div>
 
   <h2>Academic</h2>
   <div class="item">
     <h3>Graduate Student Researcher, University of California, Riverside</h3>
     <span class="muted">September 2022 – present</span>
-    <p>Research on GPU and memory-system security, advised by Prof. Nael Abu-Ghazaleh.
-      See <a href="research.html">Research</a>.</p>
+    <p>Hardware security and computer architecture, advised by
+      <a href="https://www.cs.ucr.edu/~nael/">Prof. Nael Abu-Ghazaleh</a>.
+      More on each project on the <a href="research.html">Research</a> page.</p>
+    <ul>
+      <li><b>MIG isolation on the NVIDIA GH200 (PAGE404, IEEE S&amp;P 2027):</b> showed that
+        hardware-assisted page migration in GPUs can be abused to break isolation between
+        co-located workloads.</li>
+      <li><b>Rowhammer mitigations as attack vectors (Not so Refreshing, USENIX Security 2025):</b>
+        showed that the DRAM Refresh Management (RFM) Rowhammer mitigation can be exploited to
+        attack GPUs.</li>
+      <li><b>Multi-GPU interconnect (NVBleed, ACM CCS 2026; SEED 2024):</b> co-developed
+        contention-based covert and side-channel attacks on the NVIDIA NVLink interconnect.</li>
+      <li><b>Efficient Rowhammer defense (PRACtical, under submission):</b> designed
+        subarray-level counter updates and bank-level recovery isolation to reduce the performance
+        overhead of PRAC, evaluated with the Ramulator DRAM simulator.</li>
+      <li>Responsibly disclosed findings to the affected hardware vendors and released attack code
+        on GitHub.</li>
+    </ul>
   </div>
   <div class="item">
     <h3>Teaching Assistant, CS100, University of California, Riverside</h3>
     <span class="muted">September 2025 – March 2026</span>
-    <p>Led weekly discussion sections, held office hours and supervised lab sessions.</p>
+    <ul>
+      <li>Led weekly discussion sections.</li>
+      <li>Held office hours.</li>
+      <li>Supervised laboratory sessions.</li>
+    </ul>
   </div>
 </main>
 </body>
