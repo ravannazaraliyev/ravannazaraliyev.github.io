@@ -21,3 +21,6 @@ li { margin-bottom: 10px; }
 @media (max-width: 600px) {
   .header { flex-direction: column; gap: 16px; }
 }
+.contact { list-style: none; padding: 0; }
+.contact li { display: flex; align-items: center; gap: 10px; }
+.contact svg { width: 18px; height: 18px; color: #444; flex-shrink: 0; }
