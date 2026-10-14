@@ -53,7 +53,8 @@
   <h3 class="project">PAGE404: Breaking GPU isolation through page migration</h3>
   <p class="meta">IEEE S&amp;P 2027 <a href="https://github.com/RavanN700/PAGE404_AttacksOnGH200">Code</a></p>
   <p>NVIDIA's GH200 pairs a CPU and a GPU that share memory. To keep system memory close to GPU memory 
-    when using it, the hardware moves memory pages between to HBM memory. The GPU can
+    when using it, the hardware moves memory pages to HBM memory. This migration is assisted by hardware counters: 
+    accesses to a page is counted and once it reaches a threshold, the page is migrated. The GPU can
     also be split into isolated slices with Multi-Instance GPU (MIG), so different customers can
     run side by side.</p>
   <p>We found that page migration is not fully isolated between those slices. By watching how
